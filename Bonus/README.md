@@ -1,0 +1,1 @@
+Combination of Assignment 1 and 2 and works in the same fashion
