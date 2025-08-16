@@ -3,6 +3,7 @@ location            = "Central US"
 vm_size             = "Standard_B1s"
 admin_username      = "azureuser"
 ssh_public_key      = "C:/Users/sudhakar Gandikota/.ssh/id_rsa.pub"
+schedule             = "Week"
 
 tags = {
   Project = "PatchMgmt"

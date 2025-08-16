@@ -12,6 +12,7 @@ resource "azurerm_virtual_machine_extension" "oms_agent_linux" {
   type                       = "OmsAgentForLinux"
   type_handler_version       = "1.14"
   auto_upgrade_minor_version = true
+  tags                = var.tags
 
   settings = jsonencode({
     workspaceId = var.workspace_guid
@@ -34,8 +35,9 @@ resource "azurerm_automation_software_update_configuration" "suc" {
   reboot                   = "IfRequired"
   }
  
+ 
   schedule {
-    frequency = "Week"
+    frequency = var.schedule
   }
   target {
     azure_query {
@@ -43,5 +45,5 @@ resource "azurerm_automation_software_update_configuration" "suc" {
     }
   }
 }
-
+ 
 output "suc_name"   { value = azurerm_automation_software_update_configuration.suc.name }

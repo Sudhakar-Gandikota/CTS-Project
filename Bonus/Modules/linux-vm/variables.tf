@@ -6,3 +6,7 @@ variable "admin_username" {}
 variable "ssh_public_key" {}
 variable "subnet_id" {}
 variable "nsg_id" {}
+variable "tags"                { 
+    type = map(string) 
+    default = {} 
+}

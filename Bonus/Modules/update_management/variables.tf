@@ -3,6 +3,7 @@ variable "automation_account_id"   { type = string }
 variable "automation_account_name" { type = string }
 variable "workspace_id"            { type = string }
 variable "workspace_guid"          { type = string }
+variable "schedule"                { type = string }
 variable "workspace_key"           { 
     type = string 
     sensitive = true 
@@ -39,3 +40,8 @@ variable "maintenance_window"      {
     type = string 
     default = "PT2H" 
 } # ISO8601 duration, e.g. PT2H (2 hours)
+
+variable "tags"                { 
+    type = map(string) 
+    default = {} 
+}

@@ -14,6 +14,7 @@ resource "azurerm_log_analytics_solution" "update_mgmt" {
   resource_group_name   = var.resource_group_name
   workspace_resource_id = azurerm_log_analytics_workspace.this.id
   workspace_name        = azurerm_log_analytics_workspace.this.name
+  tags                = var.tags
 
   plan {
     publisher = "Microsoft"

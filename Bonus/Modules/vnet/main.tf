@@ -3,6 +3,7 @@ resource "azurerm_virtual_network" "avn" {
   address_space       = var.address_space
   location            = var.location
   resource_group_name = var.resource_group_name
+  tags                = var.tags
 }
 
 resource "azurerm_subnet" "avns" {
@@ -10,4 +11,5 @@ resource "azurerm_subnet" "avns" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.avn.name
   address_prefixes     = var.subnet_prefix
+ 
 }

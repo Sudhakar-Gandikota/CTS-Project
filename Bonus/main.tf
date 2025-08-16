@@ -27,6 +27,7 @@ module "vnet" {
   resource_group_name = azurerm_resource_group.rg.name
   subnet_name         = "web-subnet"
   subnet_prefix       = ["10.0.1.0/24"]
+  tags                = var.tags
 }
 
 module "nsg" {
@@ -34,6 +35,7 @@ module "nsg" {
   nsg_name            = "centralus-nsg"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
+  tags                = var.tags
 }
 
 module "vm" {
@@ -46,6 +48,7 @@ module "vm" {
   ssh_public_key      = var.ssh_public_key
   subnet_id           = module.vnet.subnet_id
   nsg_id              = module.nsg.nsg_id
+  tags                = var.tags
 }
 
 output "vm_public_ip" {
@@ -92,6 +95,8 @@ module "update_mgmt" {
   linux_classifications   = var.linux_classifications
   reboot_setting          = var.reboot_setting
   maintenance_window      = var.maintenance_window
+  schedule                = var.schedule
+  tags                    = var.tags
 }
 
 output "suc_name" { value = module.update_mgmt.suc_name }
